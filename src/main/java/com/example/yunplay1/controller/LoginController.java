@@ -18,7 +18,7 @@ public class LoginController {
     private Button btnLogin;
 
     @FXML
-    private Button btnRegis;
+    private Button btnSignUp;
 
     @FXML
     private void onBtnLoginClick() {
@@ -33,6 +33,8 @@ public class LoginController {
         try {
             RegisterView registerView = new RegisterView();
             Stage registerStage = new Stage();
+            Stage currentPage = (Stage) btnSignUp.getScene().getWindow();
+            currentPage.close();
             registerView.start(registerStage);
         } catch (Exception e) {
             e.printStackTrace();
