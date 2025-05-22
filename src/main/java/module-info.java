@@ -4,6 +4,7 @@ module com.example.yunplay1 {
 
     requires com.dlsc.formsfx;
     requires java.desktop;
+    requires java.sql;
 
     opens com.example.yunplay1 to javafx.fxml;
     exports com.example.yunplay1;
