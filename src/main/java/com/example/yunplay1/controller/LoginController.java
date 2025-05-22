@@ -25,7 +25,6 @@ public class LoginController {
         String username = txtUser.getText();
         String password = txtPass.getText();
 
-
     }
 
     @FXML
