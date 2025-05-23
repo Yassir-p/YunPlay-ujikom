@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:controller="com.example.yunplay1.controller.RegisterController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #ededee;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.PasswordField?>
+<Pane fx:controller="com.example.yunplay1.controller.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #ededee;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtUser" layoutX="761.0" layoutY="369.0" prefHeight="34.0" prefWidth="278.0" promptText="Username" style="-fx-background-radius: 8;" />
       <ImageView fitHeight="184.0" fitWidth="748.0" layoutX="514.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
@@ -23,7 +24,7 @@
             <Image url="@image/footer.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtPass" layoutX="761.0" layoutY="442.0" prefHeight="34.0" prefWidth="278.0" promptText="Password" style="-fx-background-radius: 8;" />
+      <PasswordField fx:id="txtPass" accessibleRole="PASSWORD_FIELD" layoutX="761.0" layoutY="442.0" prefHeight="34.0" prefWidth="278.0" promptText="Password" style="-fx-background-radius: 8;" />
       <Pane layoutX="-5.0" prefHeight="827.0" prefWidth="519.0" style="-fx-background-color: #333333;">
          <children>
             <ImageView fx:id="imgView" fitHeight="546.0" fitWidth="691.0" layoutX="-13.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
@@ -48,7 +49,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Button fx:id="btnSignUp" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#onBtnSignUp" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignIn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -59,7 +60,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignIn" layoutX="761.0" layoutY="630.0" mnemonicParsing="false" onAction="#onBtnSignIn" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignUp" layoutX="761.0" layoutY="630.0" mnemonicParsing="false" onAction="#onBtnRegisClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -90,7 +91,7 @@
             <Font name="Droid Sans" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" layoutX="761.0" layoutY="299.0" prefHeight="34.0" prefWidth="278.0" promptText="Name" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtUser1" layoutX="761.0" layoutY="299.0" prefHeight="34.0" prefWidth="278.0" promptText="Name" style="-fx-background-radius: 8;" />
       <Text layoutX="761.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
          <font>
             <Font size="17.0" />
