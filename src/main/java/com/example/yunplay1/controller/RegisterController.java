@@ -5,10 +5,9 @@ import com.example.yunplay1.views.LoginView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -26,7 +25,7 @@ public class RegisterController {
     private TextField txtUser;
 
     @FXML
-    private TextField txtPass;
+    private PasswordField txtPass;
 
     @FXML
     private void onBtnSignIn() {
