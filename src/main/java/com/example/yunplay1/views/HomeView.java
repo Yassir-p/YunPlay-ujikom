@@ -16,7 +16,7 @@ public class HomeView extends Application {
 
     @Override
     public void start(Stage thirdStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginView.class.getResource("/com/example/yunplay1/dashboardAdmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HomeView.class.getResource("/com/example/yunplay1/dashboardAdmin.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1260, 827);
         thirdStage.setTitle("Home");
