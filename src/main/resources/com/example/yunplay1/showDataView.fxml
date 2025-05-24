@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -40,17 +39,6 @@
             </Text>
          </children>
       </Pane>
-      <Button fx:id="btnUpload" layoutX="747.0" layoutY="475.0" mnemonicParsing="false" onAction="#onBtnUploadClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="UPLOAD" textAlignment="CENTER" textFill="WHITE">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
       <Text layoutX="769.0" layoutY="222.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
          <font>
             <Font name="Carlito Bold" size="54.0" />
@@ -66,17 +54,16 @@
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <Text layoutX="747.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload Video">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Text>
-      <Button fx:id="btnBrowse" layoutX="747.0" layoutY="396.0" mnemonicParsing="false" onAction="#onBtnBrowse" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #999999; -fx-background-radius: 6;" text="Browse your files" />
-      <Text fx:id="previewLink" layoutX="747.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview link" />
-      <ImageView fx:id="btnBack" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnBack" fitHeight="42.0" fitWidth="41.0" layoutX="549.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@back-button.png" />
          </image>
       </ImageView>
+      <TableView layoutX="549.0" layoutY="328.0" prefHeight="321.0" prefWidth="674.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tblVideo" prefWidth="598.0" text="JUDUL" />
+        </columns>
+      </TableView>
    </children>
 </Pane>
