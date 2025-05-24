@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.PasswordField?>
-<Pane fx:controller="com.example.yunplay1.controller.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #ededee;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="com.example.yunplay1.controller.RegisterController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #ededee;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtUser" layoutX="761.0" layoutY="369.0" prefHeight="34.0" prefWidth="278.0" promptText="Username" style="-fx-background-radius: 8;" />
       <ImageView fitHeight="184.0" fitWidth="748.0" layoutX="514.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">

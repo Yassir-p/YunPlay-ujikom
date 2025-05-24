@@ -28,7 +28,7 @@ public class RegisterController {
     private PasswordField txtPass;
 
     @FXML
-    private void onBtnSignIn() {
+    private void onBtnLoginClick() {
         try {
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
@@ -41,7 +41,7 @@ public class RegisterController {
     }
 
     @FXML
-    private void onBtnSignUp() {
+    private void onBtnRegisClick() {
         try {
             Connection conn = Koneksi.getKonek();
             String query = "INSERT INTO users (full_name, username, password) VALUES (?, ?, ?)";

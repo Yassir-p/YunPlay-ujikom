@@ -3,6 +3,7 @@ package com.example.yunplay1.controller;
 
 import com.example.yunplay1.Koneksi;
 import com.example.yunplay1.Session;
+import com.example.yunplay1.views.DashboardView;
 import com.example.yunplay1.views.HomeView;
 import com.example.yunplay1.views.RegisterView;
 import javafx.fxml.FXML;
@@ -57,9 +58,15 @@ public class LoginController {
                 Session.setUser(id, fullName, uName, role);
 
                 showAlert("Sukses", "Login berhasil, selamat datang " + username, Alert.AlertType.INFORMATION);
-                HomeView homeView = new HomeView();
-                Stage homeStage = new Stage();
-                homeView.start(homeStage);
+                Stage newStage = new Stage();
+                if (role.equalsIgnoreCase("admin")) {
+                    DashboardView dashboardView = new DashboardView();
+                    dashboardView.start(newStage);
+                } else {
+                    HomeView homeView = new HomeView();
+                    homeView.start(newStage);
+                }
+
                 Stage currentStage = (Stage) btnSignIn.getScene().getWindow();
                 currentStage.close();
 
