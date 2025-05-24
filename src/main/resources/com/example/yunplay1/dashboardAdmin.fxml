@@ -11,7 +11,7 @@
 
 <Pane fx:controller="com.example.yunplay1.controller.AdminController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #ededee;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="184.0" fitWidth="748.0" layoutX="514.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+      <ImageView fitHeight="184.0" fitWidth="748.0" layoutX="509.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@image/footer.png" />
          </image>
@@ -38,9 +38,14 @@
                   <Font name="System Bold" size="60.0" />
                </font>
             </Text>
+            <Button fx:id="btnLogout" layoutX="165.0" layoutY="740.0" mnemonicParsing="false" onAction="#onBtnLogoutClick" prefHeight="34.0" prefWidth="189.0" style="-fx-background-color: red; -fx-background-radius: 6;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <Button fx:id="btnAddData" layoutX="757.0" layoutY="421.0" mnemonicParsing="false" onAction="#onBtnAddClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="ADD DATA" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnAddData" layoutX="756.0" layoutY="431.0" mnemonicParsing="false" onAction="#onBtnAddClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="ADD DATA" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -48,10 +53,10 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
          <font>
-            <Font size="19.0" />
+            <Font name="Montserrat Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnShowData" layoutX="757.0" layoutY="503.0" mnemonicParsing="false" onAction="#onBtnShowDataClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="SHOW DATA" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnShowData" layoutX="756.0" layoutY="513.0" mnemonicParsing="false" onAction="#onBtnShowDataClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="SHOW DATA" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -59,25 +64,25 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
          <font>
-            <Font size="19.0" />
+            <Font name="Montserrat Bold" size="19.0" />
          </font>
       </Button>
-      <Text layoutX="778.0" layoutY="236.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
+      <Text layoutX="777.0" layoutY="246.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
          <font>
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <Text layoutX="819.0" layoutY="396.0" stroke="BLACK" strokeWidth="0.2" text="Select your choice">
+      <Text layoutX="818.0" layoutY="406.0" stroke="BLACK" strokeWidth="0.2" text="Select your choice">
          <font>
             <Font name="Droid Sans" size="19.0" />
          </font>
       </Text>
-      <Text layoutX="814.0" layoutY="299.0" stroke="BLACK" strokeWidth="0.5" text="ADMIN">
+      <Text layoutX="813.0" layoutY="309.0" stroke="BLACK" strokeWidth="0.5" text="ADMIN">
          <font>
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <Text layoutX="883.0" layoutY="491.0" stroke="BLACK" strokeWidth="0.2" text="or">
+      <Text layoutX="882.0" layoutY="501.0" stroke="BLACK" strokeWidth="0.2" text="or">
          <font>
             <Font name="Droid Sans" size="19.0" />
          </font>

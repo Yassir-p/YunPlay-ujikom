@@ -2,6 +2,7 @@ package com.example.yunplay1.controller;
 
 
 import com.example.yunplay1.Koneksi;
+import com.example.yunplay1.Session;
 import com.example.yunplay1.views.HomeView;
 import com.example.yunplay1.views.RegisterView;
 import javafx.fxml.FXML;
@@ -41,18 +42,24 @@ public class LoginController {
 
         try {
             Connection conn = Koneksi.getKonek();
-            String query = "SELECT role FROM users WHERE username=? AND password=?";
+            String query = "SELECT * FROM users WHERE username=? AND password=?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                int id = rs.getInt("id");
+                String fullName = rs.getString("full_name");
+                String uName = rs.getString("username");
+                String role = rs.getString("role");
+
+                Session.setUser(id, fullName, uName, role);
+
                 showAlert("Sukses", "Login berhasil, selamat datang " + username, Alert.AlertType.INFORMATION);
                 HomeView homeView = new HomeView();
                 Stage homeStage = new Stage();
                 homeView.start(homeStage);
-
                 Stage currentStage = (Stage) btnSignIn.getScene().getWindow();
                 currentStage.close();
 

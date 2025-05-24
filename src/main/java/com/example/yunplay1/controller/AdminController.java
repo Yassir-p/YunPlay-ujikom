@@ -39,4 +39,9 @@ public class AdminController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void onBtnLogoutClick() {
+
+    }
 }

@@ -8,7 +8,23 @@ public class UploadController {
     private Button btnUpload;
 
     @FXML
+    private Button btnLogout;
+
+    @FXML
+    private Button btnBrowse;
+
+    @FXML
     private void onBtnUploadClick() {
+
+    }
+
+    @FXML
+    private void onBtnLogoutClick() {
+
+    }
+
+    @FXML
+    private void onBtnBrowseClick() {
 
     }
 }
