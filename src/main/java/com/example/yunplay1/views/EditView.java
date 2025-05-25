@@ -1,7 +1,12 @@
 package com.example.yunplay1.views;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EditView extends Application {
 
@@ -10,7 +15,15 @@ public class EditView extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void start(Stage thirdStage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(EditView.class.getResource("/com/example/yunplay1/editDataView.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 1260, 827);
+        thirdStage.show();
+        thirdStage.setTitle("Edit");
+        thirdStage.setScene(scene);
+        thirdStage.centerOnScreen();
+        thirdStage.setScene(scene);
+        thirdStage.setResizable(false);
     }
 }
