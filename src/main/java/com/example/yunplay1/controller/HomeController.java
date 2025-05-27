@@ -1,5 +1,14 @@
 package com.example.yunplay1.controller;
 
-public class HomeController {
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
+public class HomeController {
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private void onBtnLogoutClick() {
+        
+    }
 }
