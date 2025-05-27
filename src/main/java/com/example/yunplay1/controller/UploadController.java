@@ -1,5 +1,6 @@
 package com.example.yunplay1.controller;
 
+import com.example.yunplay1.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -20,7 +21,12 @@ public class UploadController {
 
     @FXML
     private void onBtnLogoutClick() {
-
+        try {
+            Session.clearSession();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
