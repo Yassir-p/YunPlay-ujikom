@@ -1,8 +1,10 @@
 package com.example.yunplay1.controller;
 
 import com.example.yunplay1.Session;
+import com.example.yunplay1.views.LoginView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class UploadController {
     @FXML
@@ -23,6 +25,11 @@ public class UploadController {
     private void onBtnLogoutClick() {
         try {
             Session.clearSession();
+            LoginView loginView = new LoginView();
+            Stage loginStage = new Stage();
+            loginView.start(loginStage);
+            Stage currentPage = (Stage) btnLogout.getScene().getWindow();
+            currentPage.close();
             
         } catch (Exception e) {
             e.printStackTrace();
