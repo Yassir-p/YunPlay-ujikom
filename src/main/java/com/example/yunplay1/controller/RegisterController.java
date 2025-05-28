@@ -55,9 +55,7 @@ public class RegisterController {
             int RowsAffected = up.executeUpdate();
             if (RowsAffected > 0) {
                 showAlert("Sukses", "Berhasil Sign Up " + fullName, Alert.AlertType.INFORMATION);
-                txtName.setText("");
-                txtUser.setText("");
-                txtPass.setText("");
+                clearField();
             } else {
                 showAlert("ERROR","Gagal Sign Up", Alert.AlertType.ERROR);
             }
