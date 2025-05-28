@@ -21,6 +21,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public class ShowDetailsController implements Initializable {
     @FXML
     private Button btnLogout;
@@ -63,6 +66,7 @@ public class ShowDetailsController implements Initializable {
             EditView editView = new EditView();
             Stage stage = new Stage();
             editView.start(stage);
+            stage.show();
             Stage current = (Stage) btnEdit.getScene().getWindow();
             current.close();
         } catch (Exception e) {
@@ -72,7 +76,30 @@ public class ShowDetailsController implements Initializable {
 
     @FXML
     private void onBtnDeleteClick() {
+        Video selected = tableVideo.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            showAlert("Peringatan", "Pilih data yang ingin dihapus!", Alert.AlertType.WARNING);
+            return;
+        }
 
+        try {
+            Connection conn = Koneksi.getKonek();
+            String query = "DELETE FROM video WHERE id = ?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, selected.getId());
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                showAlert("Sukses", "Data berhasil dihapus.", Alert.AlertType.INFORMATION);
+                videoList.remove(selected);
+            } else {
+                showAlert("Gagal", "Data gagal dihapus.", Alert.AlertType.ERROR);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Terjadi kesalahan saat menghapus data.", Alert.AlertType.ERROR);
+        }
     }
 
     @Override
@@ -86,9 +113,9 @@ public class ShowDetailsController implements Initializable {
     private void loadData() {
         videoList.clear();
         try {
-            var conn = Koneksi.getKonek();
-            var query = "SELECT * FROM video";
-            var ps = conn.prepareStatement(query);
+            Connection conn = Koneksi.getKonek();
+            String query = "SELECT * FROM video";
+            PreparedStatement ps = conn.prepareStatement(query);
             var rs = ps.executeQuery();
             while (rs.next()) {
                 videoList.add(new Video(
@@ -110,6 +137,7 @@ public class ShowDetailsController implements Initializable {
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
             loginView.start(loginStage);
+            loginStage.show();
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
             showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
@@ -124,6 +152,7 @@ public class ShowDetailsController implements Initializable {
             DashboardView dashboardView = new DashboardView();
             Stage dasboardStage = new Stage();
             dashboardView.start(dasboardStage);
+            dasboardStage.show();
             Stage currentPage = (Stage) btnBack.getScene().getWindow();
             currentPage.close();
         } catch (Exception e) {

@@ -97,6 +97,9 @@ public class LoginController {
             RegisterView registerView = new RegisterView();
             Stage registerStage = new Stage();
             registerView.start(registerStage);
+            registerStage.show();
+            registerStage.toFront();
+            registerStage.requestFocus();
             Stage currentPage = (Stage) btnSignUp.getScene().getWindow();
             currentPage.close();
         } catch (Exception e) {

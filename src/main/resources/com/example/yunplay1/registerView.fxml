@@ -49,7 +49,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Button fx:id="btnSignIn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignUp" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#onBtnRegisClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -60,7 +60,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignUp" layoutX="761.0" layoutY="630.0" mnemonicParsing="false" onAction="#onBtnRegisClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignIn" layoutX="761.0" layoutY="630.0" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -91,7 +91,7 @@
             <Font name="Droid Sans" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUser1" layoutX="761.0" layoutY="299.0" prefHeight="34.0" prefWidth="278.0" promptText="Name" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtName" layoutX="761.0" layoutY="299.0" prefHeight="34.0" prefWidth="278.0" promptText="Name" style="-fx-background-radius: 8;" />
       <Text layoutX="761.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
          <font>
             <Font size="17.0" />

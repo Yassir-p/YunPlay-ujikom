@@ -33,6 +33,7 @@ public class RegisterController {
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
             loginView.start(loginStage);
+            loginStage.show();
             Stage currentPage = (Stage) btnSignIn.getScene().getWindow();
             currentPage.close();
         } catch (Exception e) {
@@ -42,12 +43,16 @@ public class RegisterController {
 
     @FXML
     private void onBtnRegisClick() {
+        String fullName = txtName.getText().trim();
+        String username = txtUser.getText().trim();
+        String password = txtPass.getText().trim();
+        if (fullName.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            showAlert("Error", "Field tidak boleh kosong", Alert.AlertType.ERROR);
+            return;
+        }
         try {
             Connection conn = Koneksi.getKonek();
             String query = "INSERT INTO users (full_name, username, password) VALUES (?, ?, ?)";
-            String fullName = txtName.getText().trim();
-            String username = txtUser.getText().trim();
-            String password = txtPass.getText().trim();
             PreparedStatement up = conn.prepareStatement(query);
             up.setString(1, fullName);
             up.setString(2, username);
