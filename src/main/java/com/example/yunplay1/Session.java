@@ -5,6 +5,7 @@ public class Session {
     private static String fullName;
     private static String username;
     private static String role;
+    private static Video selectedVideo;
 
     public static void setUser(int userId, String name, String uName, String userRole) {
         id = userId;
@@ -34,5 +35,13 @@ public class Session {
         fullName = null;
         username = null;
         role = null;
+    }
+
+    public static void setSelectedVideo(Video video) {
+        selectedVideo = video;
+    }
+
+    public static Video getSelectedVideo() {
+        return selectedVideo;
     }
 }
