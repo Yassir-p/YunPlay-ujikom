@@ -1,9 +1,6 @@
 package com.example.yunplay1.controller;
 
-import com.example.yunplay1.views.DashboardView;
-import com.example.yunplay1.views.LoginView;
-import com.example.yunplay1.views.RegisterView;
-import com.example.yunplay1.views.UploadView;
+import com.example.yunplay1.views.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -37,9 +34,9 @@ public class AdminController {
     @FXML
     private void onBtnShowDataClick() {
         try {
-            DashboardView dashboardView = new DashboardView();
-            Stage DashboardStage = new Stage();
-            dashboardView.start(DashboardStage);
+            ShowDetailsView showDetailsView = new ShowDetailsView();
+            Stage showDetails = new Stage();
+            showDetailsView.start(showDetails);
             Stage currentPage = (Stage) btnShowData.getScene().getWindow();
             currentPage.close();
         } catch (Exception e) {

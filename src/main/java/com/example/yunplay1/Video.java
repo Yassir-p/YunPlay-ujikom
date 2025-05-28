@@ -22,4 +22,12 @@ public class Video {
     public String getFileVideo() {
         return fileVideo;
     }
+
+    public void setNamaVideo(String namaVideo) {
+        this.namaVideo = namaVideo;
+    }
+
+    public void setFileVideo(String fileVideo) {
+        this.fileVideo = fileVideo;
+    }
 }

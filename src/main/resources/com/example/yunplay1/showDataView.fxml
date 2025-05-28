@@ -50,7 +50,7 @@
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <ImageView fx:id="btnBack" fitHeight="42.0" fitWidth="41.0" layoutX="549.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnBack" onMouseClicked="#onBtnBackClick" fitHeight="42.0" fitWidth="41.0" layoutX="549.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/back-button.png" />
          </image>
