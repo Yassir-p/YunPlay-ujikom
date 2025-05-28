@@ -13,6 +13,9 @@ public class HomeController {
     private Button btnLogout;
 
     @FXML
+    private Button btnPlay;
+
+    @FXML
     private void onBtnLogoutClick() {
         try {
             clearSession();
@@ -25,6 +28,11 @@ public class HomeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void onBtnPlayClick() {
+
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

@@ -27,12 +27,12 @@
                   <Image url="@image/YunPlay.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="78.0" layoutY="226.0" stroke="WHITE" strokeWidth="1.5" text="DASHBOARD">
+            <Text fill="WHITE" layoutX="113.0" layoutY="226.0" stroke="WHITE" strokeWidth="1.5" text="WELCOME">
                <font>
                   <Font name="System Bold" size="60.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="159.0" layoutY="292.0" stroke="WHITE" strokeWidth="1.5" text="ADMIN">
+            <Text fill="WHITE" layoutX="219.0" layoutY="292.0" stroke="WHITE" strokeWidth="1.5" text="TO">
                <font>
                   <Font name="System Bold" size="60.0" />
                </font>
@@ -44,16 +44,26 @@
             </Button>
          </children>
       </Pane>
-      <Text layoutX="769.0" layoutY="222.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
+      <Text layoutX="769.0" layoutY="194.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
          <font>
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <Text layoutX="805.0" layoutY="277.0" stroke="BLACK" strokeWidth="0.5" text="ADMIN">
+      <Text fx:id="txtNamaUser" layoutX="829.0" layoutY="248.0" stroke="BLACK" strokeWidth="0.5" text="USER">
          <font>
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <ListView layoutX="530.0" layoutY="291.0" prefHeight="184.0" prefWidth="715.0" />
+      <ListView fx:id="listView" layoutX="530.0" layoutY="291.0" prefHeight="357.0" prefWidth="528.0" style="-fx-background-radius: 10;" />
+      <Text layoutX="530.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Video Lists">
+         <font>
+            <Font name="Montserrat Bold" size="22.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnPlay" layoutX="1073.0" layoutY="291.0" mnemonicParsing="false" onAction="#onBtnPlayClick" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: #333333; -fx-background-radius: 8; -fx-cursor: hand;" text="Play" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

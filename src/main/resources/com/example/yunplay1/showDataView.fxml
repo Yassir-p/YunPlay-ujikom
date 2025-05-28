@@ -45,17 +45,7 @@
             </Button>
          </children>
       </Pane>
-      <Text layoutX="769.0" layoutY="222.0" stroke="BLACK" strokeWidth="0.5" text="WELCOME">
-         <font>
-            <Font name="Carlito Bold" size="54.0" />
-         </font>
-      </Text>
-      <Text layoutX="810.0" layoutY="309.0" stroke="BLACK" strokeWidth="0.2" text="Upload The Video">
-         <font>
-            <Font name="Droid Sans" size="19.0" />
-         </font>
-      </Text>
-      <Text layoutX="805.0" layoutY="277.0" stroke="BLACK" strokeWidth="0.5" text="ADMIN">
+      <Text layoutX="796.0" layoutY="222.0" stroke="BLACK" strokeWidth="0.5" text="DETAILS">
          <font>
             <Font name="Carlito Bold" size="54.0" />
          </font>
@@ -65,11 +55,22 @@
             <Image url="@image/back-button.png" />
          </image>
       </ImageView>
-      <TableView layoutX="549.0" layoutY="328.0" prefHeight="321.0" prefWidth="674.0">
+      <TableView fx:id="tableVideo" layoutX="549.0" layoutY="328.0" prefHeight="321.0" prefWidth="674.0" style="-fx-background-radius: 10;">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="tblVideo" prefWidth="598.0" text="JUDUL" />
+          <TableColumn fx:id="idColumn" prefWidth="75.0" style="-fx-background-radius: 10 0 0 0;" text="ID" />
+          <TableColumn fx:id="namaColumn" prefWidth="300.0" text="NAMA VIDEO" />
+            <TableColumn fx:id="fileColumn" prefWidth="300.0" style="-fx-background-radius: 0 10 0 0;" text="FILE VIDEO" />
         </columns>
       </TableView>
+      <Button fx:id="btnDelete" layoutX="1110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnDeleteClick" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: red; -fx-background-radius: 8;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEdit" layoutX="988.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnEditClick" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #333333; -fx-background-radius: 8;" text="EDIT" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

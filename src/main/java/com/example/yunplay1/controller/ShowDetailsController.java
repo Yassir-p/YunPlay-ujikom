@@ -12,6 +12,22 @@ public class ShowDetailsController {
     private Button btnLogout;
 
     @FXML
+    private Button btnEdit;
+
+    @FXML
+    private Button btnDelete;
+
+    @FXML
+    private void onBtnEditClick() {
+
+    }
+
+    @FXML
+    private void onBtnDeleteClick() {
+
+    }
+
+    @FXML
     private void onBtnLogoutClick() {
         try {
             Session.clearSession();

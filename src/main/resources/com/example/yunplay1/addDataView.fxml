@@ -79,12 +79,12 @@
       </Text>
       <Button fx:id="btnBrowse" layoutX="747.0" layoutY="396.0" mnemonicParsing="false" onAction="#onBtnBrowseClick" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #999999; -fx-background-radius: 6;" text="Browse your files" />
       <Text fx:id="previewLink" layoutX="747.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview link" />
-      <ImageView fx:id="btnBack" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnBack" onMouseClicked="#onBtnBackClick" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/back-button.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtNamaVideo" layoutX="746.0" layoutY="487.0" prefHeight="34.0" prefWidth="278.0" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtNamaVideo" layoutX="746.0" layoutY="487.0" prefHeight="34.0" prefWidth="278.0" promptText="Nama video" style="-fx-background-radius: 8;" />
       <Text layoutX="747.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Video">
          <font>
             <Font size="17.0" />

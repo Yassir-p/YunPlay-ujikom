@@ -46,6 +46,9 @@ public class UploadController {
     private Button btnBrowse;
 
     @FXML
+    private javafx.scene.image.ImageView btnBack;
+
+    @FXML
     private void onBtnUploadClick() {
         if (path == null || path.isEmpty()) {
             showAlert("Error", "Silakan pilih file video terlebih dahulu", Alert.AlertType.ERROR);
@@ -110,9 +113,24 @@ public class UploadController {
         alert.showAndWait();
     }
 
+
     private void clearField() {
         txtNamaVideo.clear();
         previewLink.setText("");
         path = null;
+    }
+
+    @FXML
+    private void onBtnBackClick() {
+        try {
+            DashboardView dashboardView = new DashboardView();
+            Stage dasboardStage = new Stage();
+            dashboardView.start(dasboardStage);
+            Stage currentPage = (Stage) btnBack.getScene().getWindow();
+            currentPage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "gagal kembali ke dashboard", Alert.AlertType.ERROR);
+        }
     }
 }
