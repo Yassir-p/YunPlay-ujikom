@@ -51,7 +51,7 @@ public class UploadController {
         File videoFile = new File(path);
         try (FileInputStream fis = new FileInputStream(videoFile)) {
             Connection conn = Koneksi.getKonek(); // Panggil koneksi dari Koneksi.java
-            String sql = "INSERT INTO video (link) VALUES (?)";
+            String sql = "INSERT INTO video (nama_video, link_video) VALUES (?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, videoFile.getName());
             ps.setBinaryStream(2, fis, (int) videoFile.length());
