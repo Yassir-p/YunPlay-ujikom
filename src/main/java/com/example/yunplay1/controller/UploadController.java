@@ -18,11 +18,7 @@ import java.sql.SQLException;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.example.yunplay1.Session.clearSession;
 
@@ -112,7 +108,6 @@ public class UploadController {
         alert.setHeaderText(null);
         alert.showAndWait();
     }
-
 
     private void clearField() {
         txtNamaVideo.clear();
