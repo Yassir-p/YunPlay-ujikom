@@ -74,4 +74,10 @@ public class RegisterController {
         alert.setHeaderText(null);
         alert.showAndWait();
     }
+
+    private void clearField() {
+        txtName.clear();
+        txtUser.clear();
+        txtPass.clear();
+    }
 }

@@ -72,8 +72,8 @@ public class LoginController {
 
             } else {
                 showAlert("Error", "Username atau password salah", Alert.AlertType.ERROR);
+                clearField();
             }
-
             rs.close();
             stmt.close();
         } catch (Exception ex) {
@@ -102,5 +102,10 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void clearField() {
+        txtUser.clear();
+        txtPass.clear();
     }
 }
