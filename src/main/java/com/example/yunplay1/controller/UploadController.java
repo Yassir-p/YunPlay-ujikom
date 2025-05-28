@@ -8,6 +8,7 @@ import com.example.yunplay1.views.LoginView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -36,6 +37,9 @@ public class UploadController {
     private Button btnLogout;
 
     @FXML
+    private TextField txtNamaVideo;
+
+    @FXML
     private Text previewLink;
 
     @FXML
@@ -48,16 +52,22 @@ public class UploadController {
             return;
         }
 
-        File videoFile = new File(path);
-        try (FileInputStream fis = new FileInputStream(videoFile)) {
-            Connection conn = Koneksi.getKonek(); // Panggil koneksi dari Koneksi.java
-            String sql = "INSERT INTO video (nama_video, link_video) VALUES (?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, videoFile.getName());
-            ps.setBinaryStream(2, fis, (int) videoFile.length());
+        String namaVideo = txtNamaVideo.getText();
+        if (namaVideo == null || namaVideo.trim().isEmpty()) {
+            showAlert("Error", "Silahkan isi nama video terlebih dahulu", Alert.AlertType.ERROR);
+            return;
+        }
+
+        File fileVideo = new File(path);
+        try {
+            Connection conn = Koneksi.getKonek();
+            String query = "INSERT INTO video (nama_video, link_video) VALUES (?, ?)";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, namaVideo); // mengambil nama vidio
+            ps.setString(2, fileVideo.getName()); // mengambil nama file
             ps.executeUpdate();
 
-            showAlert("Sukses", "Video berhasil diupload ke database", Alert.AlertType.INFORMATION);
+            showAlert("Sukses", "Video berhasil diupload", Alert.AlertType.INFORMATION);
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Gagal upload video: " + e.getMessage(), Alert.AlertType.ERROR);
@@ -74,6 +84,7 @@ public class UploadController {
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
             showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
+            clearField();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,5 +108,11 @@ public class UploadController {
         alert.setContentText(message);
         alert.setHeaderText(null);
         alert.showAndWait();
+    }
+
+    private void clearField() {
+        txtNamaVideo.clear();
+        previewLink.setText("");
+        path = null;
     }
 }
