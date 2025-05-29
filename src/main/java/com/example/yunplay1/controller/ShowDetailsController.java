@@ -20,6 +20,8 @@ import javafx.scene.control.TableView;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import static com.example.yunplay1.Session.clearSession;
+
 public class ShowDetailsController implements Initializable {
     @FXML
     private Button btnLogout;
@@ -129,14 +131,14 @@ public class ShowDetailsController implements Initializable {
     @FXML
     private void onBtnLogoutClick() {
         try {
-            Session.clearSession();
+            clearSession();
+            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
             loginView.start(loginStage);
             loginStage.show();
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
-            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
         } catch (Exception e) {
             e.printStackTrace();
         }

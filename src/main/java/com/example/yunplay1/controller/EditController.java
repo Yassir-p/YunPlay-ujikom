@@ -3,6 +3,7 @@ package com.example.yunplay1.controller;
 import com.example.yunplay1.Koneksi;
 import com.example.yunplay1.views.DashboardView;
 import com.example.yunplay1.views.LoginView;
+import com.example.yunplay1.views.ShowDetailsView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -51,6 +52,7 @@ public class EditController {
         if (ShowDetailsController.selectedVideo != null) {
             txtNamaVideo.setText(ShowDetailsController.selectedVideo.getNamaVideo());
             previewLink.setText(ShowDetailsController.selectedVideo.getFileVideo());
+            path = ShowDetailsController.selectedVideo.getFileVideo();
         } else {
             showAlert("Error", "Data video tidak tersedia", Alert.AlertType.ERROR);
         }
@@ -84,18 +86,17 @@ public class EditController {
         }
 
         String namaBaru = txtNamaVideo.getText().trim();
-        File fileBaru = new File(path);
+        if (namaBaru.isEmpty()) {
+            showAlert("Error", "Silahkan isi nama video terlebih dahulu", Alert.AlertType.ERROR);
+            return;
+        }
 
         if (path == null || path.isEmpty()) {
             showAlert("Error", "Silakan pilih file video terlebih dahulu", Alert.AlertType.ERROR);
             return;
         }
 
-        if (namaBaru == null || namaBaru.trim().isEmpty()) {
-            showAlert("Error", "Silahkan isi nama video terlebih dahulu", Alert.AlertType.ERROR);
-            return;
-        }
-
+        File fileBaru = new File(path);
         try {
             Connection conn = Koneksi.getKonek();
             String query = "UPDATE video SET nama_video = ?, link_video = ? WHERE id = ?";
@@ -107,9 +108,9 @@ public class EditController {
             int rows = ps.executeUpdate();
             if (rows > 0) {
                 showAlert("Sukses", "Video berhasil diperbarui", Alert.AlertType.INFORMATION);
-                DashboardView dashboardView = new DashboardView();
-                Stage dasboardStage = new Stage();
-                dashboardView.start(dasboardStage);
+                ShowDetailsView showDetailsView = new ShowDetailsView();
+                Stage detailsStage = new Stage();
+                showDetailsView.start(detailsStage);
                 Stage currentPage = (Stage) btnUpdate.getScene().getWindow();
                 currentPage.close();
             } else {
@@ -127,12 +128,12 @@ public class EditController {
     private void onBtnLogoutClick() {
         try {
             clearSession();
+            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
             loginView.start(loginStage);
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
-            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
         } catch (Exception e) {
             e.printStackTrace();
         }

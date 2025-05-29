@@ -48,12 +48,12 @@ public class AdminController {
     private void onBtnLogoutClick() {
         try {
             clearSession();
+            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
             LoginView loginView = new LoginView();
             Stage loginStage = new Stage();
             loginView.start(loginStage);
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
-            showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
         } catch (Exception e) {
             e.printStackTrace();
         }
