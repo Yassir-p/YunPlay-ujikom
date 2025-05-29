@@ -28,7 +28,7 @@ public class UploadController {
 
     String path;
 
-    private static final List<String> VALID_EXTENSIONS = Arrays.asList("mp4", "avi", "mov", "mkv", "webm", "wmv");
+    private static final List<String> VALIDASI_VIDEO = Arrays.asList("mp4", "avi", "mov", "mkv", "webm", "wmv");
 
     @FXML
     private Button btnUpload;
@@ -101,17 +101,15 @@ public class UploadController {
                 new FileChooser.ExtensionFilter("Video files", "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm", "*.wmv")
         );
 
-        Stage stage = (Stage) btnBrowse.getScene().getWindow();
-        File selectedFile = fileChooser.showOpenDialog(stage);
-
-        if (selectedFile != null) {
-            String ext = getFileExtension(selectedFile.getName());
-            if (!VALID_EXTENSIONS.contains(ext.toLowerCase())) {
+        File pilihFile = fileChooser.showOpenDialog(null);
+        if (pilihFile != null) {
+            String ext = getFileExtension(pilihFile.getName());
+            if (!VALIDASI_VIDEO.contains(ext.toLowerCase())) {
                 showAlert("Error", "Hanya format file mp4, avi, mov, mkv, webm dan wmv yang diperbolehkan", Alert.AlertType.ERROR);
                 return;
             }
-            path = selectedFile.getAbsolutePath();
-            previewLink.setText(selectedFile.getName());
+            path = pilihFile.getAbsolutePath();
+            previewLink.setText(pilihFile.getName());
         }
     }
 

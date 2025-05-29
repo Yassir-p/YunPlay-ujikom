@@ -16,7 +16,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import javax.swing.*;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -65,15 +64,15 @@ public class EditController {
                 new FileChooser.ExtensionFilter("Video Files", "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm", "*.wmv")
         );
 
-        File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            String ext = getFileExtension(file.getName());
-            if (VALIDASI_VIDEO.contains(ext.toLowerCase())) {
-                path = file.getAbsolutePath();
-                previewLink.setText(file.getName());
-            } else {
-                showAlert("Error", "Format file tidak didukung", Alert.AlertType.ERROR);
+        File pilihFile = fileChooser.showOpenDialog(null);
+        if (pilihFile != null) {
+            String ext = getFileExtension(pilihFile.getName());
+            if (!VALIDASI_VIDEO.contains(ext.toLowerCase())) {
+                showAlert("Error", "Hanya format file mp4, avi, mov, mkv, webm dan wmv yang diperbolehkan", Alert.AlertType.ERROR);
+                return;
             }
+            path = pilihFile.getAbsolutePath();
+            previewLink.setText(pilihFile.getName());
         }
     }
 
@@ -85,10 +84,15 @@ public class EditController {
         }
 
         String namaBaru = txtNamaVideo.getText().trim();
-        String fileBaru = previewLink.getText().trim();
+        File fileBaru = new File(path);
 
-        if (namaBaru.isEmpty() || fileBaru.isEmpty()) {
-            showAlert("Error", "Nama video dan file tidak boleh kosong", Alert.AlertType.ERROR);
+        if (path == null || path.isEmpty()) {
+            showAlert("Error", "Silakan pilih file video terlebih dahulu", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (namaBaru == null || namaBaru.trim().isEmpty()) {
+            showAlert("Error", "Silahkan isi nama video terlebih dahulu", Alert.AlertType.ERROR);
             return;
         }
 
@@ -97,7 +101,7 @@ public class EditController {
             String query = "UPDATE video SET nama_video = ?, link_video = ? WHERE id = ?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, namaBaru);
-            ps.setString(2, fileBaru);
+            ps.setString(2, fileBaru.getAbsolutePath());
             ps.setInt(3, ShowDetailsController.selectedVideo.getId());
 
             int rows = ps.executeUpdate();
