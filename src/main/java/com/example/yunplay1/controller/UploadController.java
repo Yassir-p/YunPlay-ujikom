@@ -10,21 +10,25 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.swing.*;
 import java.io.File;
 import java.sql.PreparedStatement;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.example.yunplay1.Session.clearSession;
 
 public class UploadController {
 
     String path;
+
+    private static final List<String> VALID_EXTENSIONS = Arrays.asList("mp4", "avi", "mov", "mkv", "webm", "wmv");
 
     @FXML
     private Button btnUpload;
@@ -63,10 +67,11 @@ public class UploadController {
             String query = "INSERT INTO video (nama_video, link_video) VALUES (?, ?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, namaVideo); // mengambil nama vidio
-            ps.setString(2, fileVideo.getName()); // mengambil nama file
+            ps.setString(2, fileVideo.getAbsolutePath()); // mengambil nama file
             ps.executeUpdate();
 
             showAlert("Sukses", "Video berhasil diupload", Alert.AlertType.INFORMATION);
+            clearField();
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Gagal upload video: " + e.getMessage(), Alert.AlertType.ERROR);
@@ -83,7 +88,6 @@ public class UploadController {
             Stage currentPage = (Stage) btnLogout.getScene().getWindow();
             currentPage.close();
             showAlert("Logout", "Anda berhasil logout", Alert.AlertType.INFORMATION);
-            clearField();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,14 +95,29 @@ public class UploadController {
 
     @FXML
     private void onBtnBrowseClick() {
-        JFileChooser jf = new JFileChooser();
-        jf.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int result = jf.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File f = jf.getSelectedFile();
-            path = f.getAbsolutePath();
-            previewLink.setText(f.getName()); // menampilkan nama video
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pilih File Video");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Video files", "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm", "*.wmv")
+        );
+
+        Stage stage = (Stage) btnBrowse.getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            String ext = getFileExtension(selectedFile.getName());
+            if (!VALID_EXTENSIONS.contains(ext.toLowerCase())) {
+                showAlert("Error", "Hanya format file mp4, avi, mov, mkv, webm dan wmv yang diperbolehkan", Alert.AlertType.ERROR);
+                return;
+            }
+            path = selectedFile.getAbsolutePath();
+            previewLink.setText(selectedFile.getName());
         }
+    }
+
+    private String getFileExtension(String filename) {
+        int dotIndex = filename.lastIndexOf('.');
+        return (dotIndex > 0 && dotIndex < filename.length() - 1) ? filename.substring(dotIndex + 1) : "";
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

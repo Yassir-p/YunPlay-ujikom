@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -17,6 +18,8 @@ import java.sql.SQLException;
 
 import javax.swing.*;
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.example.yunplay1.Session.clearSession;
 
@@ -42,37 +45,50 @@ public class EditController {
     private javafx.scene.image.ImageView btnBack;
 
     @FXML
+    private static final List<String> VALIDASI_VIDEO = Arrays.asList("mp4", "avi", "mov", "mkv", "webm", "wmv");
+
+    @FXML
     public void initialize() {
         if (ShowDetailsController.selectedVideo != null) {
             txtNamaVideo.setText(ShowDetailsController.selectedVideo.getNamaVideo());
             previewLink.setText(ShowDetailsController.selectedVideo.getFileVideo());
+        } else {
+            showAlert("Error", "Data video tidak tersedia", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void onBtnBrowseClick() {
-        JFileChooser jf = new JFileChooser();
-        jf.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int result = jf.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File f = jf.getSelectedFile();
-            path = f.getAbsolutePath();
-            previewLink.setText(f.getName()); // menampilkan nama video
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pilih Video");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Video Files", "*.mp4", "*.avi", "*.mov", "*.mkv", "*.webm", "*.wmv")
+        );
+
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            String ext = getFileExtension(file.getName());
+            if (VALIDASI_VIDEO.contains(ext.toLowerCase())) {
+                path = file.getAbsolutePath();
+                previewLink.setText(file.getName());
+            } else {
+                showAlert("Error", "Format file tidak didukung", Alert.AlertType.ERROR);
+            }
         }
     }
 
     @FXML
     private void onBtnUpdateClick() {
-        String namaBaru = txtNamaVideo.getText();
-        String fileBaru = previewLink.getText();
-
-        if (namaBaru.isEmpty() || fileBaru.isEmpty()) {
-            showAlert("Error", "Nama dan file tidak boleh kosong", Alert.AlertType.ERROR);
+        if (ShowDetailsController.selectedVideo == null) {
+            showAlert("Error", "Data video tidak ditemukan", Alert.AlertType.ERROR);
             return;
         }
 
-        if (path == null || path.isEmpty()) {
-            showAlert("Error", "Silakan pilih file video terlebih dahulu", Alert.AlertType.ERROR);
+        String namaBaru = txtNamaVideo.getText().trim();
+        String fileBaru = previewLink.getText().trim();
+
+        if (namaBaru.isEmpty() || fileBaru.isEmpty()) {
+            showAlert("Error", "Nama video dan file tidak boleh kosong", Alert.AlertType.ERROR);
             return;
         }
 
@@ -86,20 +102,17 @@ public class EditController {
 
             int rows = ps.executeUpdate();
             if (rows > 0) {
-                showAlert("Sukses", "Data berhasil diupdate", Alert.AlertType.INFORMATION);
-                try {
-                    DashboardView dashboardView = new DashboardView();
-                    Stage dasboardStage = new Stage();
-                    dashboardView.start(dasboardStage);
-                    Stage currentPage = (Stage) btnUpdate.getScene().getWindow();
-                    currentPage.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    showAlert("Error", "gagal kembali ke dashboard", Alert.AlertType.ERROR);
-                }
+                showAlert("Sukses", "Video berhasil diperbarui", Alert.AlertType.INFORMATION);
+                DashboardView dashboardView = new DashboardView();
+                Stage dasboardStage = new Stage();
+                dashboardView.start(dasboardStage);
+                Stage currentPage = (Stage) btnUpdate.getScene().getWindow();
+                currentPage.close();
             } else {
-                showAlert("Gagal", "Data gagal diupdate", Alert.AlertType.ERROR);
+                showAlert("Gagal", "Gagal memperbarui data", Alert.AlertType.ERROR);
             }
+
+            ps.close();
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", e.getMessage(), Alert.AlertType.ERROR);
@@ -141,5 +154,10 @@ public class EditController {
         alert.setContentText(message);
         alert.setHeaderText(null);
         alert.showAndWait();
+    }
+
+    private String getFileExtension(String filename) {
+        int dotIndex = filename.lastIndexOf('.');
+        return (dotIndex > 0 && dotIndex < filename.length() - 1) ? filename.substring(dotIndex + 1) : "";
     }
 }
