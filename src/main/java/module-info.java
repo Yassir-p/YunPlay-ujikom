@@ -6,6 +6,7 @@ module com.example.yunplay1 {
     requires java.desktop;
     requires java.sql;
     requires jdk.jdi;
+    requires javafx.media;
 
     opens com.example.yunplay1 to javafx.fxml;
     exports com.example.yunplay1;

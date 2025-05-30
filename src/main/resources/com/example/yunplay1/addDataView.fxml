@@ -79,7 +79,7 @@
       </Text>
       <Button fx:id="btnBrowse" layoutX="747.0" layoutY="396.0" mnemonicParsing="false" onAction="#onBtnBrowseClick" prefHeight="26.0" prefWidth="151.0" style="-fx-cursor: hand; -fx-background-color: #999999; -fx-background-radius: 6;" text="Browse your files" />
       <Text fx:id="previewLink" layoutX="747.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview link" />
-      <ImageView fx:id="btnBack" onMouseClicked="#onBtnBackClick" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnBack" style="-fx-cursor: hand;" onMouseClicked="#onBtnBackClick" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/back-button.png" />
          </image>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #999999;" type="BorderPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yunplay1.controller.VideoPlayerController">
+   <center>
+      <MediaView fx:id="videoView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="BOTTOM_CENTER" />
+   </center>
+   <bottom>
+      <VBox prefHeight="143.0" prefWidth="1260.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1260.0">
+               <children>
+                  <Slider HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button fx:id="btnBack" layoutX="359.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnBackClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#onBtnPlayClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="Play" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPause" mnemonicParsing="false" onAction="#onBtnPauseClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: red;" text="Pause" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="durasiLabel" text="Duration 00 / 00" />
+                  <Button fx:id="btnRewind" layoutX="475.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnRewindClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="&lt;&lt;" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSkip" layoutX="417.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnSkipClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="&gt;&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnFullscreen" layoutX="884.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnFullscreenClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="🗖" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</fx:root>
