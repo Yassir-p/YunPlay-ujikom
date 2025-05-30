@@ -30,4 +30,9 @@ public class Video {
     public void setFileVideo(String fileVideo) {
         this.fileVideo = fileVideo;
     }
+
+    @Override
+    public String toString() {
+        return namaVideo; // untuk menampilkan video di list home
+    }
 }

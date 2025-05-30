@@ -53,7 +53,7 @@
             <Font name="Carlito Bold" size="54.0" />
          </font>
       </Text>
-      <Button fx:id="btnSignIn" layoutX="757.0" layoutY="482.0" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignIn" layoutX="757.0" layoutY="482.0" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="42.0" prefWidth="278.0" style="-fx-cursor: hand; -fx-background-radius: 10; -fx-background-color: #333333;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -64,7 +64,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignUp" layoutX="757.0" layoutY="605.0" mnemonicParsing="false" onAction="#onBtnRegisClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #999999;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnSignUp" layoutX="757.0" layoutY="605.0" mnemonicParsing="false" onAction="#onBtnRegisClick" prefHeight="42.0" prefWidth="278.0" style="-fx-cursor: hand; -fx-background-radius: 10; -fx-background-color: #999999;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

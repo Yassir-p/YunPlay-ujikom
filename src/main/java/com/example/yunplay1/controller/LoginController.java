@@ -37,7 +37,7 @@ public class LoginController {
         String password = txtPass.getText().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert("Error", "Username dan password tidak boleh kosong", Alert.AlertType.ERROR);
+            showAlert("Error", "Isi username dan password terlebih dahulu", Alert.AlertType.ERROR);
             return;
         }
 
@@ -97,9 +97,6 @@ public class LoginController {
             RegisterView registerView = new RegisterView();
             Stage registerStage = new Stage();
             registerView.start(registerStage);
-            registerStage.show();
-            registerStage.toFront();
-            registerStage.requestFocus();
             Stage currentPage = (Stage) btnSignUp.getScene().getWindow();
             currentPage.close();
         } catch (Exception e) {

@@ -39,14 +39,14 @@
                   <Font name="System Bold" size="60.0" />
                </font>
             </Text>
-            <Button fx:id="btnLogout" layoutX="165.0" layoutY="740.0" mnemonicParsing="false" onAction="#onBtnLogoutClick" prefHeight="34.0" prefWidth="189.0" style="-fx-background-color: red; -fx-background-radius: 6;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnLogout" layoutX="165.0" layoutY="740.0" mnemonicParsing="false" onAction="#onBtnLogoutClick" prefHeight="34.0" prefWidth="189.0" style="-fx-cursor: hand; -fx-background-color: red; -fx-background-radius: 6;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="Montserrat Bold" size="13.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Button fx:id="btnUpload" layoutX="746.0" layoutY="555.0" mnemonicParsing="false" onAction="#onBtnUploadClick" prefHeight="42.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #333333;" text="UPLOAD" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnUpload" layoutX="746.0" layoutY="555.0" mnemonicParsing="false" onAction="#onBtnUploadClick" prefHeight="42.0" prefWidth="278.0" style="-fx-cursor: hand; -fx-background-radius: 10; -fx-background-color: #333333;" text="UPLOAD" textAlignment="CENTER" textFill="WHITE">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -77,7 +77,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Button fx:id="btnBrowse" layoutX="747.0" layoutY="396.0" mnemonicParsing="false" onAction="#onBtnBrowseClick" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #999999; -fx-background-radius: 6;" text="Browse your files" />
+      <Button fx:id="btnBrowse" layoutX="747.0" layoutY="396.0" mnemonicParsing="false" onAction="#onBtnBrowseClick" prefHeight="26.0" prefWidth="151.0" style="-fx-cursor: hand; -fx-background-color: #999999; -fx-background-radius: 6;" text="Browse your files" />
       <Text fx:id="previewLink" layoutX="747.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview link" />
       <ImageView fx:id="btnBack" onMouseClicked="#onBtnBackClick" fitHeight="42.0" fitWidth="41.0" layoutX="540.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
          <image>

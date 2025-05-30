@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="60.0" />
                </font>
             </Text>
-            <Button fx:id="btnLogout" layoutX="165.0" layoutY="740.0" mnemonicParsing="false" onAction="#onBtnLogoutClick" prefHeight="34.0" prefWidth="189.0" style="-fx-background-color: red; -fx-background-radius: 6;" text="LOGOUT" textFill="WHITE">
+            <Button fx:id="btnLogout" layoutX="165.0" layoutY="740.0" mnemonicParsing="false" onAction="#onBtnLogoutClick" prefHeight="34.0" prefWidth="189.0" style="-fx-cursor: hand; -fx-background-color: red; -fx-background-radius: 6;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="Montserrat Bold" size="13.0" />
                </font>
@@ -62,12 +62,12 @@
             <TableColumn fx:id="fileColumn" prefWidth="300.0" style="-fx-background-radius: 0 10 0 0;" text="FILE VIDEO" />
         </columns>
       </TableView>
-      <Button fx:id="btnDelete" layoutX="1110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnDeleteClick" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: red; -fx-background-radius: 8;" text="DELETE" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="1110.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnDeleteClick" prefHeight="34.0" prefWidth="113.0" style="-fx-cursor: hand; -fx-background-color: red; -fx-background-radius: 8;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Montserrat Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnEdit" layoutX="988.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnEditClick" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #333333; -fx-background-radius: 8;" text="EDIT" textFill="WHITE">
+      <Button fx:id="btnEdit" layoutX="988.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtnEditClick" prefHeight="34.0" prefWidth="113.0" style="-fx-cursor: hand; -fx-background-color: #333333; -fx-background-radius: 8;" text="EDIT" textFill="WHITE">
          <font>
             <Font name="Montserrat Bold" size="13.0" />
          </font>
