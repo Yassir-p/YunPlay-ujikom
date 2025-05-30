@@ -15,13 +15,13 @@ public class VideoPlayerView extends Application {
     }
 
     @Override
-    public void start(Stage thirdStage) throws IOException {
+    public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(VideoPlayerView.class.getResource("/com/example/yunplay1/videoPlayerView.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 1260, 827);
-        thirdStage.centerOnScreen();
-        thirdStage.setTitle("Video Player");
-        thirdStage.setScene(scene);
-        thirdStage.show();
+        Scene scene = new Scene(fxmlLoader.load(), 1260, 827);
+        stage.setScene(scene);
+        stage.setTitle("Video Player");
+        stage.centerOnScreen();
+        stage.setResizable(false);
+        stage.show();
     }
 }

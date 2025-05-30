@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #999999;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yunplay1.controller.VideoPlayerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827" prefWidth="1260" style="-fx-background-color: #999999;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yunplay1.controller.VideoPlayerController">
    <center>
-      <MediaView fx:id="videoView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="BOTTOM_CENTER" />
+      <MediaView fx:id="videoView" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <VBox prefHeight="143.0" prefWidth="1260.0" BorderPane.alignment="CENTER">
@@ -28,33 +28,23 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnBack" layoutX="359.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnBackClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="Back" textFill="WHITE">
+                  <Button fx:id="btnBack" layoutX="359.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnBackClick" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand; -fx-background-color: #333333;" text="Back" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#onBtnPlayClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="Play" textFill="WHITE">
-                     <font>
-                        <Font name="Montserrat Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnPause" mnemonicParsing="false" onAction="#onBtnPauseClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: red;" text="Pause" textFill="WHITE">
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#onBtnPlayClick" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand; -fx-background-color: #333333;" text="Play" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="13.0" />
                      </font>
                   </Button>
                   <Label fx:id="durasiLabel" text="Duration 00 / 00" />
-                  <Button fx:id="btnRewind" layoutX="475.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnRewindClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="&lt;&lt;" textFill="WHITE">
+                  <Button fx:id="btnRewind" layoutX="475.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnRewindClick" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand; -fx-background-color: #333333;" text="&lt;&lt;" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSkip" layoutX="417.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnSkipClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="&gt;&gt;" textFill="WHITE">
-                     <font>
-                        <Font name="Montserrat Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnFullscreen" layoutX="884.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnFullscreenClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="🗖" textFill="WHITE">
+                  <Button fx:id="btnSkip" layoutX="417.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnSkipClick" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand; -fx-background-color: #333333;" text="&gt;&gt;" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="13.0" />
                      </font>

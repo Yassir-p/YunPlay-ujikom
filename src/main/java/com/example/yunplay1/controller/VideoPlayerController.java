@@ -1,7 +1,6 @@
 package com.example.yunplay1.controller;
 
 import com.example.yunplay1.Video;
-import com.example.yunplay1.views.DashboardView;
 import com.example.yunplay1.views.HomeView;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -21,12 +20,6 @@ import java.io.File;
 public class VideoPlayerController {
     @FXML
     private Button btnBack;
-
-    @FXML
-    private Button btnFullscreen;
-
-    @FXML
-    private Button btnPause;
 
     @FXML
     private Button btnPlay;
@@ -63,7 +56,7 @@ public class VideoPlayerController {
                     Scene scene = videoView.getScene();
                     if (scene != null) {
                         videoView.fitWidthProperty().bind(scene.widthProperty());
-                        videoView.fitHeightProperty().bind(scene.heightProperty());
+                        videoView.fitHeightProperty().bind(scene.heightProperty().subtract(143));
                     }
                 });
 
@@ -95,12 +88,19 @@ public class VideoPlayerController {
 
     @FXML
     private void onBtnPlayClick() {
-        if (mediaPlayer != null) mediaPlayer.play();
-    }
+        if (mediaPlayer == null) return;
 
-    @FXML
-    private void onBtnPauseClick() {
-        if (mediaPlayer != null) mediaPlayer.pause();
+        MediaPlayer.Status status = mediaPlayer.getStatus();
+
+        if (status == MediaPlayer.Status.PLAYING) {
+            mediaPlayer.pause();
+            btnPlay.setText("Play");
+            btnPlay.setStyle("-fx-background-color: #333333; -fx-text-fill: white;");
+        } else {
+            mediaPlayer.play();
+            btnPlay.setText("Pause");
+            btnPlay.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+        }
     }
 
     @FXML
@@ -127,14 +127,6 @@ public class VideoPlayerController {
     private void onBtnRewindClick() {
         if (mediaPlayer != null)
             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(javafx.util.Duration.seconds(10)));
-}
-
-    @FXML
-    private void onBtnFullscreenClick() {
-        Stage stage = (Stage) videoView.getScene().getWindow();
-        if (stage != null) {
-            stage.setFullScreen(!stage.isFullScreen());
-        }
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {
