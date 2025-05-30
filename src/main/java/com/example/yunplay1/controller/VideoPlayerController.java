@@ -60,7 +60,6 @@ public class VideoPlayerController {
                     }
                 });
 
-                // untuk slider
                 mediaPlayer.currentTimeProperty().addListener(((obs, oldTime, newTime) -> {
                     slider.setValue(newTime.toSeconds());
                     durasiLabel.setText((int)slider.getValue() + " / " + (int)media.getDuration().toSeconds());
