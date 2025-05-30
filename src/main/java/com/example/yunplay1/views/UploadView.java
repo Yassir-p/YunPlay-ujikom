@@ -19,11 +19,10 @@ public class UploadView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(UploadView.class.getResource("/com/example/yunplay1/addDataView.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1260, 827);
-        thirdStage.show();
-        thirdStage.setTitle("Edit");
+        thirdStage.setTitle("Upload");
         thirdStage.setScene(scene);
         thirdStage.centerOnScreen();
-        thirdStage.setScene(scene);
         thirdStage.setResizable(false);
+        thirdStage.show();
     }
 }

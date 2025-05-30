@@ -70,6 +70,7 @@ public class VideoPlayerController {
                 // untuk slider
                 mediaPlayer.currentTimeProperty().addListener(((obs, oldTime, newTime) -> {
                     slider.setValue(newTime.toSeconds());
+                    durasiLabel.setText((int)slider.getValue() + " / " + (int)media.getDuration().toSeconds());
                 }));
                 slider.valueChangingProperty().addListener((obs, wasChanging, isChanging) -> {
                     if (!isChanging) {
@@ -79,6 +80,7 @@ public class VideoPlayerController {
                 mediaPlayer.setOnReady(() -> {
                     Duration totalDurasi = media.getDuration();
                     slider.setMax(totalDurasi.toSeconds());
+                    durasiLabel.setText(" / " + (int)media.getDuration().toSeconds());
                 });
             } else {
                 durasiLabel.setText("File video tidak ditemukan");
@@ -129,7 +131,10 @@ public class VideoPlayerController {
 
     @FXML
     private void onBtnFullscreenClick() {
-
+        Stage stage = (Stage) videoView.getScene().getWindow();
+        if (stage != null) {
+            stage.setFullScreen(!stage.isFullScreen());
+        }
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

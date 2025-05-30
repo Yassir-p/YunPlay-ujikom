@@ -19,11 +19,10 @@ public class ShowDetailsView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(ShowDetailsView.class.getResource("/com/example/yunplay1/showDataView.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1260, 827);
-        thirdStage.show();
-        thirdStage.setTitle("Edit");
+        thirdStage.setTitle("Show Details");
         thirdStage.setScene(scene);
         thirdStage.centerOnScreen();
-        thirdStage.setScene(scene);
         thirdStage.setResizable(false);
+        thirdStage.show();
     }
 }
