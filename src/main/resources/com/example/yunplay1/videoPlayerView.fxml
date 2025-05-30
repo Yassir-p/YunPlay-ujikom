@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #999999;" type="BorderPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yunplay1.controller.VideoPlayerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="827.0" prefWidth="1260.0" style="-fx-background-color: #999999;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yunplay1.controller.VideoPlayerController">
    <center>
       <MediaView fx:id="videoView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="BOTTOM_CENTER" />
    </center>
@@ -64,4 +64,4 @@
          </children>
       </VBox>
    </bottom>
-</fx:root>
+</BorderPane>
