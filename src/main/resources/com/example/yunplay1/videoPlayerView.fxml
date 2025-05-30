@@ -20,7 +20,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1260.0">
                <children>
-                  <Slider HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="slider" onMousePressed="#onMousePressed" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets left="15.0" right="15.0" />
