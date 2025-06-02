@@ -50,7 +50,7 @@ public class VideoPlayerController {
                 Media media = new Media(file.toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 videoView.setMediaPlayer(mediaPlayer);
-                mediaPlayer.setAutoPlay(false);
+                mediaPlayer.setAutoPlay(true);
 
                 Platform.runLater(() -> {
                     Scene scene = videoView.getScene();
@@ -105,6 +105,9 @@ public class VideoPlayerController {
     @FXML
     private void onBtnBackClick() {
         try {
+            if (mediaPlayer != null) {
+                mediaPlayer.stop();
+            }
             HomeView homeView = new HomeView();
             Stage homeStage = new Stage();
             homeView.start(homeStage);
