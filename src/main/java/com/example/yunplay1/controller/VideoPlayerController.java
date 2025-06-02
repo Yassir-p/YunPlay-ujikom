@@ -115,7 +115,7 @@ public class VideoPlayerController {
             currentPage.close();
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error", "gagal kembali ke halaman beranda!", Alert.AlertType.ERROR);
+            showAlert("Error", "gagal kembali ke halaman beranda", Alert.AlertType.ERROR);
         }
     }
 
