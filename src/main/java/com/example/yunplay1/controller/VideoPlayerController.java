@@ -75,7 +75,7 @@ public class VideoPlayerController {
                     durasiLabel.setText(" / " + (int)media.getDuration().toSeconds());
                 });
             } else {
-                durasiLabel.setText("File video tidak ditemukan");
+                durasiLabel.setText("File video tidak ditemukan!");
             }
         }
     }
