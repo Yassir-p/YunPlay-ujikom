@@ -12,7 +12,7 @@ public class LoginView extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LoginView.class.getResource("/com/example/yunplay1/loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1260, 827);
-        stage.setTitle("Login");
+        stage.setTitle("YunPlay");
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.setResizable(false);
