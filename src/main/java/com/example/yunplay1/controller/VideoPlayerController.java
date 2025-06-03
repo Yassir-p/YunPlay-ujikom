@@ -50,7 +50,7 @@ public class VideoPlayerController {
                 Media media = new Media(file.toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 videoView.setMediaPlayer(mediaPlayer);
-                mediaPlayer.setAutoPlay(true);
+                mediaPlayer.setAutoPlay(false);
 
                 Platform.runLater(() -> {
                     Scene scene = videoView.getScene();
@@ -129,6 +129,25 @@ public class VideoPlayerController {
     private void onBtnRewindClick() {
         if (mediaPlayer != null)
             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(javafx.util.Duration.seconds(10)));
+    }
+
+    @FXML
+    private void onBtnFullscreenClick() {
+        Stage stage = (Stage) videoView.getScene().getWindow();
+        Scene scene = videoView.getScene();
+
+        if (!stage.isFullScreen()) {
+            stage.setFullScreenExitHint("Tekan ESC untuk keluar dari fullscreen");
+            stage.setFullScreen(true);
+
+            videoView.fitWidthProperty().bind(scene.widthProperty());
+            videoView.fitHeightProperty().bind(scene.heightProperty());
+
+        } else {
+            stage.setFullScreen(false);
+            videoView.fitWidthProperty().bind(scene.widthProperty());
+            videoView.fitHeightProperty().bind(scene.heightProperty().subtract(143));
+        }
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

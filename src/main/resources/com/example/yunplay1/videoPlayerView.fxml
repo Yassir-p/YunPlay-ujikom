@@ -49,6 +49,11 @@
                         <Font name="Montserrat Bold" size="13.0" />
                      </font>
                   </Button>
+                  <Button fx:id="btnFullscreen" layoutX="884.0" layoutY="45.0" mnemonicParsing="false" onAction="#onBtnFullscreenClick" prefHeight="30.0" prefWidth="96.0" style="-fx-background-color: #333333;" text="🗖" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Bold" size="13.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>
