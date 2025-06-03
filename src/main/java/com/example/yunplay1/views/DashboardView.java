@@ -19,7 +19,7 @@ public class DashboardView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HomeView.class.getResource("/com/example/yunplay1/dashboardAdmin.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1260, 827);
-        thirdStage.setTitle("Dashboard");
+        thirdStage.setTitle("YunPlay");
         thirdStage.setScene(scene);
         thirdStage.centerOnScreen();
         thirdStage.setResizable(false);
