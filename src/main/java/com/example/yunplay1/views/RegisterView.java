@@ -17,7 +17,7 @@ public class RegisterView extends Application {
     public void start(Stage secondStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(RegisterView.class.getResource("/com/example/yunplay1/registerView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1260, 827);
-        secondStage.setTitle("Register");
+        secondStage.setTitle("YunPlay");
         secondStage.centerOnScreen();
         secondStage.setScene(scene);
         secondStage.setResizable(false);
