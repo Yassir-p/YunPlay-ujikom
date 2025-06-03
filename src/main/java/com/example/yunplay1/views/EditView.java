@@ -19,7 +19,7 @@ public class EditView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(EditView.class.getResource("/com/example/yunplay1/editDataView.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1260, 827);
-        thirdStage.setTitle("Edit");
+        thirdStage.setTitle("YunPlay");
         thirdStage.setScene(scene);
         thirdStage.centerOnScreen();
         thirdStage.setResizable(false);
