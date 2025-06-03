@@ -19,7 +19,7 @@ public class VideoPlayerView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(VideoPlayerView.class.getResource("/com/example/yunplay1/videoPlayerView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1260, 827);
         stage.setScene(scene);
-        stage.setTitle("Video Player");
+        stage.setTitle("YunPlay");
         stage.centerOnScreen();
         stage.setResizable(false);
         stage.show();
